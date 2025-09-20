@@ -14,8 +14,6 @@
 
         sock=socket(domain,type,protocol);
         test_connection(sock);
-        connection=connect_to_network(sock,(struct sockaddr *)&adress,sizeof(adress));
-        test_connection(connection);
 
     }
     int droid::droidSocket::get_connection(){
