@@ -1,0 +1,1 @@
+Custom HTTP server that can handle basic GET request and give response.
