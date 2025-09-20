@@ -19,8 +19,10 @@ class droidSocket{
     void test_connection(int connect);
     int get_connection();
     int get_sock();
+    int set_connection(int conn);
+    struct sockaddr_in  get_adress();
     //to check whether to use bind() or connect() based on server or client
     //vurtual helps to implement run time polymorphism so child function overrides parent
-    virtual int connect_to_network(int sock,struct sockaddr * adress,int len)=0;
+    virtual int connect_to_network(int sock,struct sockaddr_in  adress)=0;
 };
 }

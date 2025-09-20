@@ -23,3 +23,10 @@
     int droid::droidSocket::get_sock(){
         return sock;
     }
+    struct sockaddr_in  droid::droidSocket::get_adress(){
+        return adress;
+    }
+
+    int droid::droidSocket:: set_connection(int conn){
+        connection=conn;
+    }
