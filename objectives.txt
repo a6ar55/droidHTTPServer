@@ -1,0 +1,151 @@
+Here’s a Product Requirements Document (PRD) style outline for turning your simple HTTP server into a polished, resume-worthy “mini web server” project.
+This gives you a roadmap that looks professional and helps you talk about it in interviews.
+
+
+---
+
+1. Project Overview
+
+Name: Mercury Web Server (or any catchy name)
+Goal: Build a lightweight, multithreaded HTTP/1.1 web server in C++ from scratch that can serve static files and simple dynamic responses efficiently and securely.
+Why: Demonstrates deep understanding of networking, concurrency, and systems programming.
+
+
+---
+
+2. Objectives
+
+Implement a standards-compliant HTTP/1.1 server from scratch using C++17 (no high-level libraries).
+
+Achieve good performance (thousands of requests/sec) on a laptop.
+
+Provide a clean, documented codebase and test suite.
+
+Package with an installer or Dockerfile for easy running.
+
+Host on GitHub with clear README, architecture diagram, and benchmarks.
+
+
+
+---
+
+3. Core Features
+
+Feature	Description	Priority
+
+Socket listener	Bind and listen on configurable port, IPv4/IPv6	High
+Thread pool	Fixed number of worker threads to handle requests (no unbounded threads)	High
+HTTP/1.1 GET & HEAD	Serve static files with correct Content-Type & length	High
+URL decoding & path sanitization	Prevent directory traversal and injection attacks	High
+Config file	YAML/JSON config to specify port, root directory, number of threads	Medium
+Keep-alive support	Persistent connections per HTTP/1.1 spec	Medium
+Logging	Access log and error log with timestamps	Medium
+POST support	Accept form data and echo back or store in a file	Medium
+Simple dynamic handler	Register C++ functions for certain routes (e.g., /hello)	Medium
+Graceful shutdown	Handle SIGINT and cleanly close sockets/threads	Medium
+Unit tests	GoogleTest or Catch2 for request parsing and responses	Medium
+
+
+
+---
+
+4. Non-Functional Requirements
+
+Performance: Handle at least 5,000 GET requests per second on a laptop with 4 worker threads.
+
+Security: Resist path traversal, handle large requests safely (max request size configurable).
+
+Portability: Compile and run on macOS and Linux without changes.
+
+Usability: Simple build (single clang++ command or CMake).
+
+
+
+---
+
+5. Deliverables
+
+Source Code: C++17 code with headers and source files organized.
+
+Configuration file: Example YAML or JSON.
+
+README: Installation, build, usage, config options, screenshots, performance numbers.
+
+Architecture Diagram: Show request flow (socket accept → worker thread → parser → response).
+
+Benchmarks: Table of req/s with ab (ApacheBench) or wrk.
+
+Unit Tests: At least basic request parsing tests.
+
+Dockerfile: For one-command build/run.
+
+
+
+---
+
+6. Architecture Overview
+
+Main thread: Creates listening socket, accepts new connections.
+
+Thread pool: Queue of sockets to be processed.
+
+HTTP parser: Lightweight parser to handle headers and request line.
+
+Router: Maps request paths to either static file or dynamic handler.
+
+Response builder: Assembles headers + body, sends via send_all.
+
+
+(Include a small diagram in your README showing these components.)
+
+
+---
+
+7. Timeline / Milestones
+
+Week	Task
+
+Week 1	Refactor existing code into modules (listener, parser, responder). Add thread pool.
+Week 2	Add keep-alive, logging, config file.
+Week 3	Implement POST support and dynamic route handlers.
+Week 4	Write unit tests, run benchmarks, create README + diagram.
+Week 5	Polish repo (Dockerfile, badges), do final performance tuning.
+
+
+
+---
+
+8. “Stretch” Features (Optional but impressive)
+
+TLS/HTTPS support with OpenSSL.
+
+HTTP/2 support (just frame parsing, optional).
+
+Static file caching in memory.
+
+Simple metrics endpoint (/metrics) exposing server stats in JSON.
+
+
+
+---
+
+9. Success Criteria
+
+Server compiles and runs on macOS/Linux with clang++ -std=c++17.
+
+Handles at least 5,000 GET requests/sec in benchmark.
+
+Passes all unit tests.
+
+Clear documentation and diagram in repo.
+
+Can be run by anyone with one or two commands.
+
+
+
+---
+
+If you implement even 80% of the “Core Features” and present it with a clean README and benchmarks, it will look like a professional systems project.
+This is the kind of thing hiring managers love to see because it demonstrates “real” engineering skills rather than just following a tutorial.
+
+Would you like me to also mock up the README structure (with example wording and sections) for your GitHub repo? (That’s usually what makes projects stand out visually.)
