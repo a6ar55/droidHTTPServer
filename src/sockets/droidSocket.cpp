@@ -1,4 +1,4 @@
-#include<../include/droidSocket.h>
+#include "../../include/droidSocket.h"
 
     void droid::droidSocket::test_connection(int connect){
         if(connect<0){

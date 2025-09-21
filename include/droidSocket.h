@@ -2,7 +2,6 @@
 #include<sys/socket.h>
 #include<stdio.h>
 #include<netinet/in.h>
-#define PORT=8080
 
 //type means to specify the type of protocol
 //like is it SOCK_STREAM (gen used for http server)or SOCK_DGRAM etc

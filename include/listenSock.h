@@ -1,6 +1,6 @@
 #include<iostream>
 #include<stdio.h>
-#include<../include/bindSock.h>
+#include "../include/bindSock.h"
 namespace droid{
     class listenSock : public bindSock{
         private:
@@ -9,9 +9,7 @@ namespace droid{
         public:
             //This is the socket at the server side which waits/listens for clients
             //backlog is the no of clients waiting in the queue to get connected
-            listenSock(int domain,int type,int protocol,int port,u_long machineIp,int bklg):
-            bindSock(domain,type,protocol,port,machineIp){};
-
+            listenSock(int domain,int type,int protocol,int port,u_long machineIp,int bklg);
             void start_listening();
     };
 }
